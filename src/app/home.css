@@ -1,0 +1,1031 @@
+/* 기본 스타일 */
+:root {
+    --primary: #4673e8;
+    --secondary: #f59e0b;
+    --dark: #333;
+    --light: #f8fafc;
+    --accent: #8b5cf6;
+    --success: #10b981;
+    --warning: #ffbd3e;
+    --danger: #fa5252;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif; */
+    /* Removed to avoid conflict with global.css, assuming Pretendard is set globally */
+}
+
+/* body styles from style.css are removed to avoid conflict with layout.tsx body styling. Specific page content styling will be applied. */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container-home {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.btn-home {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary-home {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary-home:hover {
+    background-color: #3b63c8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary-home {
+    background-color: white;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-secondary-home:hover {
+    background-color: var(--gray-100);
+    transform: translateY(-2px);
+}
+
+.section-home {
+    padding: 4rem 0;
+}
+
+.section-title-home {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+    text-align: center;
+}
+
+
+/* 헤더 스타일 */
+.header-home {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo-home {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(----gray-900);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-home img {
+    margin-right: 5px;
+}
+
+.logo-home span {
+    color: var(--secondary);
+}
+
+.nav-menu-home {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link-home {
+    position: relative;
+    font-weight: 500;
+    padding: 0.5rem 0;
+}
+
+.nav-link-home::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link-home:hover::after,
+.nav-link-home.active::after {
+    width: 100%;
+}
+
+.mobile-menu-btn-home {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+
+/* 히어로 섹션 */
+.hero-home {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #4673e8 0%, #8b5cf6 100%);
+    color: white;
+    text-align: center;
+}
+
+.hero-content-home {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title-home {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-text-home {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+.hero-btns-home {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 페이지 헤더 (사용자 HTML에는 없지만, clinic.html 등 다른 페이지에서 사용될 수 있으므로 남겨둠) */
+.page-header-home {
+    background: linear-gradient(135deg, #4673e8 0%, #8b5cf6 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.page-title-home {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle-home {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 검색 섹션 */
+.search-section-home {
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    /* var(--gray-100) */
+    border-bottom: 1px solid #e9ecef;
+    /* var(--gray-200) */
+}
+
+.region-tabs-home {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.region-tab-home {
+    padding: 0.5rem 1.5rem;
+    background-color: #f1f3f5;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.region-tab-home.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.region-tab-home:hover {
+    background-color: #e9ecef;
+    /* var(--gray-200) */
+}
+
+.region-tab-home.active:hover {
+    background-color: #3b63c8;
+}
+
+/* 필터 */
+.filters-home {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-group-home {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-label-home {
+    font-weight: 500;
+    color: var(--dark);
+    white-space: nowrap;
+}
+
+.filter-select-home {
+    padding: 0.5rem 1rem;
+    border: 1px solid #e9ecef;
+    /* var(--gray-200) */
+    border-radius: 4px;
+    min-width: 120px;
+    background-color: white;
+}
+
+/* 정보 카드 */
+.info-card-home {
+    background-color: #f8f9fa;
+    /* var(--gray-100) */
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--primary);
+}
+
+.info-card-home h3 {
+    margin-top: 0;
+    color: var(--dark);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-card-home p {
+    color: var(--gray-600);
+    margin-bottom: 0;
+}
+
+/* 지도 섹션 */
+.map-section-home {
+    margin-top: 3rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-container-home {
+    width: 100%;
+    height: 400px;
+    background-color: #f1f3f5;
+}
+
+/* 추천 채용공고 섹션 */
+.recommended-jobs-home {
+    margin-top: 2rem;
+}
+
+.section-header-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-title-alt-home {
+    font-size: 2rem;
+    color: var(--dark);
+    margin: 0;
+}
+
+.view-all-home {
+    color: var(--primary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 채용 카드 */
+.job-cards-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.job-card-home {
+    border: 1px solid #e9ecef;
+    /* var(--gray-200) */
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    background-color: white;
+    position: relative;
+}
+
+.job-card-home:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.job-logo-home {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo-img-home {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 1rem;
+    border: 1px solid #e9ecef;
+    /* var(--gray-200) */
+    border-radius: 8px;
+    padding: 0.25rem;
+}
+
+.company-info-home h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--dark);
+}
+
+.company-info-home p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin: 0;
+}
+
+.job-details-home {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+    /* var(--gray-200) */
+}
+
+.job-position-home {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.job-meta-home {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.job-meta-home span {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.job-tags-home {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.job-tag-home {
+    padding: 0.25rem 0.75rem;
+    background-color: #f1f3f5;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--gray-700);
+}
+
+.job-deadline-home {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--danger);
+    font-weight: 500;
+}
+
+.bookmark-home {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--gray-500);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bookmark-home:hover,
+.bookmark-home.active {
+    color: var(--warning);
+}
+
+/* D-day 태그 */
+.d-day-home {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.d-day-home.urgent {
+    background-color: var(--danger);
+}
+
+.d-day-home.warning {
+    background-color: var(--warning);
+}
+
+.d-day-home.normal {
+    background-color: var(--primary);
+}
+
+.d-day-home.far {
+    background-color: var(--gray-500);
+}
+
+/* 서비스 섹션 */
+.services-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card-home {
+    text-align: center;
+    padding: 2rem;
+}
+
+.service-icon-home {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.service-title-home {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--dark);
+}
+
+.service-text-home {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    min-height: 60px;
+    /* To align buttons */
+}
+
+/* 뉴스레터 섹션 */
+.newsletter-home {
+    background-color: var(--accent);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.newsletter-content-home {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-title-home {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter-text-home {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.newsletter-form-home {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.newsletter-input-home {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+}
+
+/* 푸터 스타일 */
+.footer-home {
+    background-color: var(--dark);
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
+    justify-items: center;
+}
+
+.footer-logo-home {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-logo-home span {
+    color: var(--secondary);
+}
+
+.footer-text-home {
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+.footer-title-home {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footer-title-home::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+.footer-links-home li,
+.footer-contact-home li {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links-home li:hover,
+.footer-contact-home li:hover {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.footer-contact-home i {
+    margin-right: 0.75rem;
+    color: var(--secondary);
+}
+
+.footer-social-home {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-link-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link-home:hover {
+    background-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.footer-bottom-home {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.6;
+    font-size: 0.875rem;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 992px) {
+    .hero-title-home {
+        font-size: 2.5rem;
+    }
+
+    .page-title-home {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu-home {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        padding: 5rem 2rem;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+
+    .nav-menu-home.active {
+        right: 0;
+    }
+
+    .mobile-menu-btn-home {
+        display: block;
+        z-index: 101;
+        /* Ensure it's above the nav menu when it slides in */
+        color: var(--dark);
+        /* Ensure it's visible if header-home is white */
+    }
+
+    .hero-title-home {
+        font-size: 2rem;
+    }
+
+    .hero-text-home {
+        font-size: 1.125rem;
+    }
+
+    .section-title-home {
+        font-size: 1.75rem;
+    }
+
+    .filters-home {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-group-home {
+        width: 100%;
+    }
+
+    .filter-select-home {
+        flex: 1;
+    }
+
+    .job-cards-home {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container-home {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-home {
+        padding: 4rem 0;
+    }
+
+    .hero-title-home {
+        font-size: 1.75rem;
+    }
+
+    .section-home {
+        padding: 3rem 0;
+    }
+
+    .section-title-home {
+        font-size: 1.5rem;
+    }
+
+    .footer-content-home {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-home {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .page-title-home {
+        font-size: 1.5rem;
+    }
+
+    .page-subtitle-home {
+        font-size: 1rem;
+    }
+
+    .region-tabs-home {
+        gap: 0.3rem;
+    }
+
+    .region-tab-home {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* Styles from pasted_content_2.txt, adapted for home.css */
+
+/* 특징 섹션 (Features Section) */
+.features-home {
+    background-color: var(--gray-100);
+    padding: 4rem 0;
+    /* section-home already has this, but can be specific */
+}
+
+.features-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.feature-item-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    /* Added padding for better spacing */
+    background-color: white;
+    /* Added background for card-like effect */
+    border-radius: 0.5rem;
+    /* card-home style */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* card-home style */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* card-home style */
+}
+
+.feature-item-home:hover {
+    transform: translateY(-5px);
+    /* card-home style */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    /* card-home style */
+}
+
+.feature-icon-home {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(59, 130, 246, 0.1);
+    /* --primary with alpha */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    font-size: 2.5rem;
+    /* Increased icon size */
+}
+
+.feature-title-home {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.feature-text-home-desc {
+    color: var(--gray-600);
+    /* Darker gray for better readability */
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* 통계 섹션 (Stats Section) */
+.stats-home {
+    background-color: var(--primary);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.stats-title-home {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.stats-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-item-home {
+    padding: 1.5rem;
+}
+
+.stat-number-home {
+    font-size: 3.5rem;
+    /* Larger number */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-text-home-desc {
+    font-size: 1.125rem;
+    opacity: 0.9;
+}
+
+/* 인증 섹션 (Testimonials Section) */
+.testimonials-home {
+    background-color: var(--gray-100);
+    padding: 4rem 0;
+}
+
+.testimonial-slider-home {
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slide-home {
+    text-align: center;
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-text-home {
+    font-size: 1.25rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    position: relative;
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+
+.testimonial-text-home::before,
+.testimonial-text-home::after {
+    content: '"';
+    font-size: 3.5rem;
+    /* Larger quotes */
+    color: var(--gray-300);
+    position: absolute;
+    line-height: 0;
+}
+
+.testimonial-text-home::before {
+    top: 0.5rem;
+    left: -1.5rem;
+}
+
+.testimonial-text-home::after {
+    bottom: -0.5rem;
+    right: -1.5rem;
+}
+
+.testimonial-author-home {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+}
+
+.testimonial-position-home {
+    color: var(--gray-500);
+    font-size: 0.9rem;
+}
+
+/* 파트너 섹션 (Partners Section) */
+.partners-home {
+    background-color: white;
+    padding: 4rem 0;
+}
+
+.partners-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    /* Adjusted minmax */
+    gap: 2.5rem;
+    /* Increased gap */
+    margin-top: 3rem;
+    align-items: center;
+}
+
+.partner-item-home {
+    text-align: center;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.4s ease;
+    /* Smoother transition */
+}
+
+.partner-item-home:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.partner-img-home {
+    max-width: 130px;
+    /* Slightly larger */
+    height: auto;
+    margin: 0 auto;
+    /* Ensure centering */
+}
+
+/* Responsive adjustments for new sections if needed */
+@media (max-width: 768px) {
+
+    .features-grid-home,
+    .stats-grid-home,
+    .partners-grid-home {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* Adjust for mobile */
+    }
+
+    .stats-title-home {
+        font-size: 2rem;
+    }
+
+    .stat-number-home {
+        font-size: 2.8rem;
+    }
+
+    .testimonial-text-home {
+        font-size: 1.1rem;
+    }
+
+    .testimonial-text-home::before {
+        left: -0.5rem;
+    }
+
+    .testimonial-text-home::after {
+        right: -0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .features-grid-home {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid-home {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .partners-grid-home {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .partner-img-home {
+        max-width: 100px;
+    }
+}

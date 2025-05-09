@@ -1,0 +1,64 @@
+/* banner-slider.css 또는 home.css에 추가 */
+
+/* 스와이퍼 페이지네이션 스타일링 */
+.swiper-pagination {
+    position: absolute !important;
+    bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    opacity: 0.7;
+    margin: 0 3px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ff6b91;
+    width: 30px;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+/* 네비게이션 버튼 스타일링 - 배경 제거 */
+.swiper-button-prev,
+.swiper-button-next {
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    background-color: transparent;
+    /* 배경색 투명으로 변경 */
+    box-shadow: none;
+    /* 그림자 제거 */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    opacity: 1;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    display: none;
+    /* 기본 화살표 아이콘 제거 */
+}
+
+/* 배너 스타일링 */
+.banner-slider-container {
+    margin-bottom: 2rem;
+}
+
+.banner-slide {
+    position: relative;
+}
+
+.banner-slide::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+    z-index: 1;
+}

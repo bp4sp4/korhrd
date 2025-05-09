@@ -1,0 +1,107 @@
+/* 탭 바 */
+.interview-tab-bar {
+    display: flex;
+    gap: 1.2rem;
+    background: #f8fafc;
+    border-radius: 1.2rem;
+
+    padding: 1.1rem 2rem;
+    margin-bottom: 2.5rem;
+    justify-content: center;
+}
+
+.interview-tab {
+    font-size: 1.13rem;
+    font-weight: 600;
+    color: #4673e8;
+    background: transparent;
+    border: none;
+    border-radius: 0.7em;
+    padding: 0.7em 1.7em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.interview-tab.selected {
+    background: #4673e8;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(70, 115, 232, 0.10);
+}
+
+.interview-tab:hover:not(.selected) {
+    background: #e0e7ff;
+}
+
+/* Q/A 카드 */
+.interview-qa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+@media (max-width: 900px) {
+    .interview-qa-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.interview-qa-card {
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 24px rgba(70, 115, 232, 0.10);
+    padding: 2rem 2rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border: 1.5px solid #e0e7ff;
+}
+
+.interview-qa-card:hover {
+    box-shadow: 0 8px 32px rgba(70, 115, 232, 0.13);
+    transform: translateY(-4px) scale(1.02);
+}
+
+.interview-q {
+    color: #2956e0;
+    font-weight: 700;
+    font-size: 1.13rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+}
+
+.interview-q::before {
+    content: 'Q';
+    display: inline-block;
+    background: #e0e7ff;
+    color: #2956e0;
+    font-weight: 800;
+    border-radius: 50%;
+    width: 2.1em;
+    height: 2.1em;
+    text-align: center;
+    line-height: 2.1em;
+    margin-right: 0.6em;
+    font-size: 1.1em;
+}
+
+.interview-a {
+    color: #444;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    margin-left: 2.7em;
+    position: relative;
+}
+
+.interview-a::before {
+    content: 'A';
+    position: absolute;
+    left: -2.2em;
+    top: 0;
+    color: #b3b3b3;
+    font-weight: 700;
+    font-size: 1.1em;
+}
