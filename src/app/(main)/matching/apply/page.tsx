@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   Send,
@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-const ApplicationFormPage = () => {
+const ApplicationFormContent = () => {
   const searchParams = useSearchParams();
   const jobId = searchParams.get("jobId");
   const hasExistingApp = searchParams.get("hasApp") === "true";
@@ -272,6 +272,14 @@ const ApplicationFormPage = () => {
         )}
       </form>
     </div>
+  );
+};
+
+const ApplicationFormPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ApplicationFormContent />
+    </Suspense>
   );
 };
 
