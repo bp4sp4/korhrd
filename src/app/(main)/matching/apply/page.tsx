@@ -275,9 +275,23 @@ const ApplicationFormContent = () => {
   );
 };
 
+const LoadingState = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+        <h2 className="text-xl font-semibold text-gray-700">
+          지원서 페이지 로딩 중...
+        </h2>
+        <p className="text-gray-500 mt-2">잠시만 기다려주세요.</p>
+      </div>
+    </div>
+  );
+};
+
 const ApplicationFormPage = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<LoadingState />}>
       <ApplicationFormContent />
     </Suspense>
   );
