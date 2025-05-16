@@ -255,6 +255,17 @@ const ClinicPage = () => {
     });
   }, []);
 
+  const [showLogo, setShowLogo] = useState(true);
+
+  useEffect(() => {
+    // 2초 후에 로고 애니메이션 시작
+    const timer = setTimeout(() => {
+      setShowLogo(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     // Ensure Font Awesome is loaded if still used for some icons not replaced by Lucide
     const faScript = document.querySelector("script[src*='fontawesome']");
@@ -269,6 +280,11 @@ const ClinicPage = () => {
 
   return (
     <>
+      {showLogo && (
+        <div className={`logo-animation ${!showLogo ? "shrink" : ""}`}>
+          한평생교육원
+        </div>
+      )}
       <div>
         <section className="page-header-clinic">
           <div className="container-home">

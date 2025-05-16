@@ -21,7 +21,7 @@ export const jobList: Job[] = [
     salary: "3,000만원~3,500만원",
     experience: "경력 3년↑",
     tags: ["노인복지", "사례관리"],
-    deadline: "~ 2025.05.20",
+    deadline: "2025.05.20",
     dday: "D-13",
   },
   {
@@ -33,7 +33,7 @@ export const jobList: Job[] = [
     salary: "2,800만원~",
     experience: "신입가능",
     tags: ["영아반", "국공립"],
-    deadline: "~ 2025.05.15",
+    deadline: "2025.05.15",
     dday: "D-8",
   },
   {
@@ -45,7 +45,7 @@ export const jobList: Job[] = [
     salary: "3,000만원~",
     experience: "경력자만가능",
     tags: ["다문화", "교육"],
-    deadline: "~ 2025.05.30",
+    deadline: "2025.05.30",
     dday: "D-25",
   },
   {
@@ -57,7 +57,7 @@ export const jobList: Job[] = [
     salary: "2,800만원~",
     experience: "신입가능",
     tags: ["성인교육", "주말근무"],
-    deadline: "~ 2025.05.18",
+    deadline: "2025.05.18",
     dday: "D-11",
   },
   {
@@ -69,7 +69,7 @@ export const jobList: Job[] = [
     salary: "2,800만원~",
     experience: "신입가능",
     tags: ["장애인복지", "현장실무"],
-    deadline: "~ 2025.05.09",
+    deadline: "2025.05.09",
     dday: "D-2",
   },
   {
@@ -81,7 +81,7 @@ export const jobList: Job[] = [
     salary: "3,500만원~",
     experience: "신입불가능",
     tags: ["국어", "수학"],
-    deadline: "~ 2025.05.29",
+    deadline: "2025.05.29",
     dday: "D-21",
   },
 ];

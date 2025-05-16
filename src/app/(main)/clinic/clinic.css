@@ -11,7 +11,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 2rem;
-    max-width: 100%;
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
     align-items: stretch;
@@ -123,12 +123,26 @@
 @media (max-width: 1100px) {
     .clinic-grid-clinic {
         grid-template-columns: 1fr 1fr;
+        padding: 0 1rem;
+    }
+
+    .review-card-animated,
+    .clinic-step-card,
+    .premium-service-card {
+        max-width: 100%;
+        margin: 0 1rem;
     }
 }
 
 @media (max-width: 700px) {
     .clinic-grid-clinic {
         grid-template-columns: 1fr;
+    }
+
+    .review-card-animated,
+    .clinic-step-card,
+    .premium-service-card {
+        margin: 0 0.5rem;
     }
 }
 
@@ -344,7 +358,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    max-width: 1400px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -492,7 +506,7 @@
     box-shadow: 0 6px 32px rgba(70, 115, 232, 0.07);
     margin: 3rem auto 2rem auto;
     padding: 0;
-    max-width: 900px;
+    max-width: 1100px;
     display: flex;
     justify-content: center;
 }
@@ -611,8 +625,8 @@
     box-shadow: 0 4px 24px rgba(60, 60, 60, 0.10);
     padding: 1.1rem 1.5rem;
     margin-bottom: 0.7rem;
-    min-width: 270px;
-    max-width: 350px;
+    width: 100%;
+    max-width: 1100px;
     transition: box-shadow 0.2s;
     border: 1px solid #f1f3f5;
 }
@@ -658,7 +672,7 @@
     flex-direction: column;
     align-items: center;
     min-width: 320px;
-    max-width: 400px;
+    max-width: 1100px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -808,8 +822,8 @@
     border-radius: 1.1rem;
     box-shadow: 0 2px 8px rgba(70, 115, 232, 0.07);
     padding: 1.1rem 1.5rem;
-    min-width: 180px;
-    max-width: 220px;
+    width: 100%;
+    max-width: 1100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -867,6 +881,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
     position: relative;
     height: 100%;

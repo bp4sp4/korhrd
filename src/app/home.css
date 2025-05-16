@@ -385,7 +385,7 @@ ul {
 .company-info-home h3 {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
-    color: var(--dark);
+    color: var(--primary);
 }
 
 .company-info-home p {
