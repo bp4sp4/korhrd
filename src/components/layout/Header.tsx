@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { X } from "lucide-react"; // Using X for close icon
+import { useState } from "react";
+import { X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
@@ -16,34 +16,30 @@ const Header = () => {
     { href: "/login", label: "로그인" },
   ];
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        // md breakpoint
-        setMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    setMobileMenuOpen(false);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [pathname]);
-
   return (
-    <header className="header-home">
-      <div className="container-home">
-        <div className="header-content-home">
-          <Link href="/" className="logo-home">
-            <img src="/images/logo.jpeg" width={30} alt="" />
-            한평생교육원
+    <header className="bg-white shadow-sm">
+      <div className="max-w-[1200px] mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center space-x-2">
+            <img
+              src="/images/logo.jpeg"
+              width={30}
+              height={30}
+              alt="한평생교육원 로고"
+            />
+            <span className="text-lg font-semibold text-gray-900">
+              한평생교육원
+            </span>
           </Link>
+
           <nav className="hidden md:block">
-            <ul className="nav-menu-home">
+            <ul className="flex items-center space-x-8">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`nav-link-home ${
-                      pathname === link.href ? "active" : ""
+                    className={`text-gray-600 hover:text-blue-600 transition-colors ${
+                      pathname === link.href ? "text-blue-600 font-medium" : ""
                     }`}
                   >
                     {link.label}
@@ -52,40 +48,43 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-          <div className="md:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="mobile-menu-btn-home"
-              aria-label="메뉴 열기/닫기"
-            >
-              {mobileMenuOpen ? (
-                <X size={28} className="text-gray-700" />
-              ) : (
-                <i className="fas fa-bars text-xl text-gray-700"></i>
-              )}
-            </button>
-          </div>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            aria-label="메뉴 열기/닫기"
+          >
+            {mobileMenuOpen ? (
+              <X size={24} />
+            ) : (
+              <i className="fas fa-bars text-xl"></i>
+            )}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay - Tailwind styled for consistency */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-white z-40 pt-16 px-4">
-          <ul className="flex flex-col items-center gap-y-6 mt-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`block py-2 text-2xl font-medium text-gray-700 hover:text-blue-600 ${
-                    pathname === link.href ? "text-blue-600 font-semibold" : ""
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className="md:hidden fixed inset-0 bg-white z-40 pt-16">
+          <div className="px-4 py-2">
+            <ul className="space-y-4">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`block py-2 text-lg font-medium ${
+                      pathname === link.href
+                        ? "text-blue-600"
+                        : "text-gray-600 hover:text-blue-600"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </header>

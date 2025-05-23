@@ -1,10 +1,9 @@
 "use client";
-import Link from "next/link";
+
 import React, { useState, useEffect, useCallback } from "react";
 import "./clinic.css"; // Styles for this page
 import { ChevronDown, FileText, User, Users, Award } from "lucide-react";
 import "@/app/(main)/clinic/clinic.css";
-import { AnimatedList } from "@/components/magicui/animated-list";
 
 const FaqItem = ({
   question,
@@ -12,16 +11,55 @@ const FaqItem = ({
 }: {
   question: string;
   answer: string;
-}) => (
-  <div className="faq-item-clinic active">
-    <div className="faq-question-clinic">
-      <span>{question}</span>
+}) => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div
+      className={`faq-item-clinic${open ? " active" : ""}`}
+      style={{ marginBottom: "0.5rem" }}
+    >
+      <button
+        className="faq-question-clinic"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          background: "none",
+          border: "none",
+          padding: "1rem 1.2rem",
+          fontSize: "1.1rem",
+          fontWeight: 500,
+          cursor: "pointer",
+        }}
+      >
+        <span>{question}</span>
+        <ChevronDown
+          size={20}
+          style={{
+            transition: "transform 0.3s",
+            transform: open ? "rotate(180deg)" : "none",
+          }}
+        />
+      </button>
+      <div
+        className="faq-answer-clinic"
+        style={{
+          maxHeight: open ? 300 : 0,
+          overflow: "hidden",
+          transition: "max-height 0.3s",
+          padding: open ? "1rem 1.2rem" : "0 1.2rem",
+          background: "#f8fafc",
+          color: "#444",
+        }}
+      >
+        <p style={{ margin: 0 }}>{answer}</p>
+      </div>
     </div>
-    <div className="faq-answer-clinic">
-      <p>{answer}</p>
-    </div>
-  </div>
-);
+  );
+};
 
 const ClinicPage = () => {
   const resumeTemplates = [
@@ -32,7 +70,7 @@ const ClinicPage = () => {
         {
           format: "Word",
           icon: "fa-file-word",
-          link: "/downloads/resume_template.docx",
+          link: "/downloads/사회복지사용_자기소개서.hwp",
           className: "btn-word-clinic",
         },
         {
@@ -426,46 +464,151 @@ const ClinicPage = () => {
           </div>
         </section>
 
-        <section className="section-home guidelines-clinic">
+        <section
+          className="section-home guidelines-clinic"
+          style={{
+            background: "#fff",
+            borderRadius: "1.5rem",
+            boxShadow: "0 2px 12px rgba(70,115,232,0.06)",
+            margin: "0 auto",
+            maxWidth: 1100,
+            padding: "2.5rem 2rem",
+          }}
+        >
           <div className="container-home">
-            <h2 className="section-title-clinic">
+            <h2
+              className="section-title-clinic"
+              style={{ marginBottom: "2rem" }}
+            >
               이력서 & 자기소개서 작성 가이드북
             </h2>
-            <div className="guideline-content-clinic">
-              <div className="guideline-section-clinic">
-                <h3 className="guideline-title-clinic">
+            <div
+              className="guideline-content-clinic"
+              style={{ display: "flex", gap: "2.5rem", flexWrap: "wrap" }}
+            >
+              <div
+                className="guideline-section-clinic"
+                style={{
+                  flex: 1,
+                  minWidth: 280,
+                  borderRight: "1px solid #e5e7eb",
+                  paddingRight: "2rem",
+                }}
+              >
+                <h3
+                  className="guideline-title-clinic"
+                  style={{
+                    color: "#2956e0",
+                    fontWeight: 700,
+                    fontSize: "1.2rem",
+                    borderLeft: "4px solid #2956e0",
+                    paddingLeft: "1rem",
+                  }}
+                >
                   효과적인 이력서 작성 방법
                 </h3>
-                <p className="guideline-text-clinic">
+                <p
+                  className="guideline-text-clinic"
+                  style={{
+                    color: "#444",
+                    fontSize: "1.08rem",
+                    marginBottom: "1.2rem",
+                    lineHeight: 1.7,
+                  }}
+                >
                   이력서는 자신을 어필하는 첫 번째 도구입니다. 다음 가이드라인을
                   참고하여 효과적인 이력서를 작성하세요.
                 </p>
-                <ul className="guideline-list-clinic">
+                <ul
+                  className="guideline-list-clinic"
+                  style={{
+                    margin: "0 0 1.5rem 0",
+                    padding: 0,
+                    listStyle: "none",
+                  }}
+                >
                   <li>간결하고 명확한 문장으로 작성하세요.</li>
                   <li>성과와 업적은 구체적인 숫자와 데이터로 표현하세요.</li>
                   <li>직무와 관련된 핵심 역량을 강조하세요.</li>
                   <li>최신 정보부터 역순으로 작성하세요.</li>
                   <li>오탈자와 문법 오류가 없는지 꼼꼼히 확인하세요.</li>
                 </ul>
-                <div className="tip-box-clinic">
-                  <div className="tip-title-clinic">유용한 팁</div>
-                  <p className="tip-text-clinic">
+                <div
+                  className="tip-box-clinic"
+                  style={{
+                    background: "#f8fafc",
+                    borderRadius: "0.7rem",
+                    padding: "1.2rem 1.2rem 1.2rem 1.5rem",
+                    marginTop: "1.2rem",
+                    color: "#2956e0",
+                    fontSize: "1.05rem",
+                  }}
+                >
+                  <div
+                    className="tip-title-clinic"
+                    style={{
+                      fontWeight: 700,
+                      marginBottom: "0.5rem",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      color: "#2956e0",
+                      fontSize: "1.13rem",
+                    }}
+                  >
+                    <span style={{ marginRight: "0.5em" }}>💡</span>유용한 팁
+                  </div>
+                  <p
+                    className="tip-text-clinic"
+                    style={{
+                      color: "#444",
+                      fontSize: "1.05rem",
+                      lineHeight: 1.7,
+                      margin: 0,
+                    }}
+                  >
                     이력서를 제출하기 전에 반드시 해당 기관이나 회사의
                     요구사항을 확인하세요. 양식이나 제출 방법이 다를 수
                     있습니다.
                   </p>
                 </div>
               </div>
-
-              <div className="guideline-section-clinic">
-                <h3 className="guideline-title-clinic">
+              <div
+                className="guideline-section-clinic"
+                style={{ flex: 1, minWidth: 280, paddingLeft: "2rem" }}
+              >
+                <h3
+                  className="guideline-title-clinic"
+                  style={{
+                    color: "#2956e0",
+                    fontWeight: 700,
+                    fontSize: "1.2rem",
+                    borderLeft: "4px solid #2956e0",
+                    paddingLeft: "1rem",
+                  }}
+                >
                   자기소개서 작성 체크리스트
                 </h3>
-                <p className="guideline-text-clinic">
+                <p
+                  className="guideline-text-clinic"
+                  style={{
+                    color: "#444",
+                    fontSize: "1.08rem",
+                    marginBottom: "1.2rem",
+                    lineHeight: 1.7,
+                  }}
+                >
                   자기소개서는 이력서에서 드러나지 않는 자신의 역량과 성격을
                   보여주는 중요한 문서입니다.
                 </p>
-                <ul className="guideline-list-clinic">
+                <ul
+                  className="guideline-list-clinic"
+                  style={{
+                    margin: "0 0 1.5rem 0",
+                    padding: 0,
+                    listStyle: "none",
+                  }}
+                >
                   <li>지원하는 직무나 기관에 대한 이해를 보여주세요.</li>
                   <li>
                     자신만의 강점과 특징을 구체적인 사례와 함께 작성하세요.
@@ -476,9 +619,40 @@ const ClinicPage = () => {
                   <li>성공 경험뿐만 아니라 실패를 극복한 경험도 포함하세요.</li>
                   <li>지원 동기와 미래 계획을 명확히 제시하세요.</li>
                 </ul>
-                <div className="tip-box-clinic">
-                  <div className="tip-title-clinic">유용한 팁</div>
-                  <p className="tip-text-clinic">
+                <div
+                  className="tip-box-clinic"
+                  style={{
+                    background: "#f8fafc",
+                    borderRadius: "0.7rem",
+                    padding: "1.2rem 1.2rem 1.2rem 1.5rem",
+                    marginTop: "1.2rem",
+                    color: "#2956e0",
+                    fontSize: "1.05rem",
+                  }}
+                >
+                  <div
+                    className="tip-title-clinic"
+                    style={{
+                      fontWeight: 700,
+                      marginBottom: "0.5rem",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      color: "#2956e0",
+                      fontSize: "1.13rem",
+                    }}
+                  >
+                    <span style={{ marginRight: "0.5em" }}>💡</span>유용한 팁
+                  </div>
+                  <p
+                    className="tip-text-clinic"
+                    style={{
+                      color: "#444",
+                      fontSize: "1.05rem",
+                      lineHeight: 1.7,
+                      margin: 0,
+                    }}
+                  >
                     자기소개서는 단순한 이력 나열이 아닌, 그 속에서 자신의
                     가치관과 역량이 드러나도록 작성하는 것이 중요합니다.
                   </p>

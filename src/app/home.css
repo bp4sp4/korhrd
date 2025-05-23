@@ -104,21 +104,16 @@ ul {
     padding: 1rem 0;
 }
 
-.logo-home {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(----gray-900);
+.logo-home,
+.logo-home img,
+.logo-home span,
+.job-logo-home,
+.logo-img-home,
+.footer-logo-home,
+.footer-logo-home span {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-}
-
-.logo-home img {
-    margin-right: 5px;
-}
-
-.logo-home span {
-    color: var(--secondary);
 }
 
 .nav-menu-home {
@@ -365,23 +360,6 @@ ul {
     transform: translateY(-5px);
 }
 
-.job-logo-home {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.logo-img-home {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin-right: 1rem;
-    border: 1px solid #e9ecef;
-    /* var(--gray-200) */
-    border-radius: 8px;
-    padding: 0.25rem;
-}
-
 .company-info-home h3 {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
@@ -574,17 +552,6 @@ ul {
     justify-items: center;
 }
 
-.footer-logo-home {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 1rem;
-}
-
-.footer-logo-home span {
-    color: var(--secondary);
-}
-
 .footer-text-home {
     opacity: 0.8;
     margin-bottom: 1.5rem;
@@ -773,13 +740,13 @@ ul {
 
 
 
-/* Styles from pasted_content_2.txt, adapted for home.css */
 
-/* 특징 섹션 (Features Section) */
+
+
 .features-home {
-    background-color: var(--gray-100);
+
     padding: 4rem 0;
-    /* section-home already has this, but can be specific */
+
 }
 
 .features-grid-home {
@@ -881,7 +848,7 @@ ul {
 
 /* 인증 섹션 (Testimonials Section) */
 .testimonials-home {
-    background-color: var(--gray-100);
+
     padding: 4rem 0;
 }
 

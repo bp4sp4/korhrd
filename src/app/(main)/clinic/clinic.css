@@ -114,103 +114,28 @@
 }
 
 .faq-grid-clinic {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     margin-top: 2.5rem;
 }
 
-@media (max-width: 1100px) {
-    .clinic-grid-clinic {
-        grid-template-columns: 1fr 1fr;
-        padding: 0 1rem;
-    }
-
-    .review-card-animated,
-    .clinic-step-card,
-    .premium-service-card {
-        max-width: 100%;
-        margin: 0 1rem;
-    }
-}
-
-@media (max-width: 700px) {
-    .clinic-grid-clinic {
-        grid-template-columns: 1fr;
-    }
-
-    .review-card-animated,
-    .clinic-step-card,
-    .premium-service-card {
-        margin: 0 0.5rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .clinic-card-clinic {
-        min-width: 90vw;
-        max-width: 98vw;
-        padding: 1.2rem 0.7rem;
-    }
-
-    .guidelines-clinic,
-    .faq-clinic {
-        padding: 1.2rem 0.5rem;
-    }
-}
-
-.faq-item-clinic {
-    background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    font-size: 1.13rem;
-    padding: 1rem 1rem 1rem 1.2rem;
-    margin-bottom: 0;
-}
-
-.faq-question-clinic {
-    padding: 1.25rem;
-    background-color: white;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-.faq-question-clinic:hover {
-    background-color: var(--gray-100);
-}
-
-.faq-question-clinic i {
-    transition: transform 0.3s ease;
-}
-
+/* FAQ 아코디언 인라인 스타일로 대체, 불필요한 스타일 제거 */
+.faq-item-clinic,
+.faq-question-clinic,
 .faq-answer-clinic {
-    padding: 0 1.25rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-    /* Smoother transition */
-    color: var(--gray-700);
-    /* Added text color for answer */
-    line-height: 1.6;
+    all: unset;
 }
 
-.faq-item-clinic.active .faq-question-clinic {
-    color: var(--primary);
-}
-
-.faq-item-clinic.active .faq-question-clinic i {
-    transform: rotate(180deg);
-}
-
-.faq-item-clinic.active .faq-answer-clinic {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-    max-height: 500px;
-    /* Ensure enough height for content */
+/* 가이드북 섹션 인라인 스타일로 대체, 중복 스타일 제거 */
+.guideline-section-clinic,
+.guideline-title-clinic,
+.guideline-text-clinic,
+.guideline-list-clinic,
+.tip-box-clinic,
+.tip-title-clinic,
+.tip-text-clinic {
+    all: unset;
 }
 
 /* 테이블 스타일 */
@@ -433,11 +358,6 @@
     font-size: 1.13rem;
 }
 
-.tip-title-clinic::before {
-    content: "💡";
-    margin-right: 0.5em;
-    font-size: 1.1em;
-}
 
 .tip-text-clinic {
     color: var(--gray-700);
@@ -446,10 +366,8 @@
     margin: 0;
 }
 
-/* General section title styling for clinic page */
 .section-title-clinic {
     font-size: 2.25rem;
-    /* Increased for 40+ target */
     margin-bottom: 1.5rem;
     color: var(--dark);
     text-align: center;
@@ -461,12 +379,10 @@
     max-width: 700px;
     margin: 0 auto 3rem;
     font-size: 1.15rem;
-    /* Increased for 40+ target */
     color: var(--gray-600);
     line-height: 1.7;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .page-title-clinic {
         font-size: 2rem;
