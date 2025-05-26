@@ -17,8 +17,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white shadow-sm">
-      <div className="max-w-[1200px] mx-auto px-4">
+    <header className="bg-white shadow-sm header-home">
+      <div className="max-w-[1200px] mx-auto">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <img

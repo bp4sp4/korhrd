@@ -1,0 +1,191 @@
+/* Blue Value-Up Design for Matching Page */
+
+.matchingSection {
+    background: linear-gradient(135deg, #e3edff 0%, #f8fafc 100%);
+    padding: 3rem 0 2rem 0;
+}
+
+.matchingHeader {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.matchingTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2563eb;
+    margin-bottom: 0.7rem;
+    letter-spacing: -1px;
+}
+
+.matchingSubtitle {
+    font-size: 1.2rem;
+    color: #3b82f6;
+    margin-bottom: 0.5rem;
+}
+
+.filterCard {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 24px rgba(70, 115, 232, 0.10);
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    border: 1.5px solid #e3edff;
+}
+
+.matchingCardGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.matchingCard {
+    background: #f8fafc;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 24px rgba(70, 115, 232, 0.10);
+    border: 1.5px solid #e3edff;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 420px;
+}
+
+.matchingCard:hover {
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.18);
+    transform: translateY(-4px) scale(1.025);
+    border-color: #2563eb;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 2rem 2rem 1rem 2rem;
+}
+
+.companyIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb 60%, #60a5fa 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2rem;
+    box-shadow: 0 2px 8px rgba(70, 115, 232, 0.10);
+}
+
+.cardTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.2rem;
+}
+
+.cardCompany {
+    color: #334155;
+    font-size: 1.08rem;
+    font-weight: 500;
+}
+
+.cardInfo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.2rem;
+    margin: 1rem 2rem 0.5rem 2rem;
+}
+
+.infoPill {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #e0e7ff;
+    color: #2563eb;
+    border-radius: 1.2rem;
+    padding: 0.4rem 1.1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.cardDesc {
+    color: #475569;
+    font-size: 1.05rem;
+    margin: 1rem 2rem 1.2rem 2rem;
+    line-height: 1.7;
+    min-height: 48px;
+}
+
+.cardTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 2rem 1.2rem 2rem;
+}
+
+.tagPill {
+    background: linear-gradient(90deg, #60a5fa 60%, #2563eb 100%);
+    color: #fff;
+    border-radius: 1.2rem;
+    padding: 0.3rem 1.1rem;
+    font-size: 0.98rem;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(70, 115, 232, 0.10);
+}
+
+.cardFooter {
+    background: #e3edff;
+    padding: 1.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    border-top: 1.5px solid #dbeafe;
+}
+
+.cardDate {
+    color: #64748b;
+    font-size: 0.98rem;
+}
+
+.cardBtn {
+    background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.08rem;
+    font-weight: 700;
+    padding: 0.9rem 0;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(70, 115, 232, 0.10);
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+
+.cardBtn:hover {
+    background: linear-gradient(90deg, #1d4ed8 60%, #2563eb 100%);
+    transform: scale(1.03);
+}
+
+@media (max-width: 900px) {
+    .matchingCardGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .filterCard {
+        padding: 1.2rem 1rem;
+    }
+
+    .matchingCard {
+        min-height: unset;
+    }
+
+    .cardHeader,
+    .cardInfo,
+    .cardDesc,
+    .cardTags,
+    .cardFooter {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

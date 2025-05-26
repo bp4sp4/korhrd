@@ -12,6 +12,7 @@ import {
   Send,
 } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import styles from "./matching.module.css";
 
 // Dummy data for job listings - replace with actual data later
 const jobListings = [
@@ -438,23 +439,19 @@ const MatchingPage = () => {
   });
 
   return (
-    <>
+    <div className={styles.matchingSection}>
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-16 md:py-24 rounded-lg shadow-lg mb-12">
-        <div className="container mx-auto text-center px-6">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            지역별 취업처 매칭
-          </h1>
-          <p className="text-lg sm:text-xl max-w-3xl mx-auto">
-            희망 근무지역, 시간, 직무를 선택하고 맞춤형 일자리 정보를
-            찾아보세요. 당신에게 맞는 최고의 기회가 기다리고 있습니다.
-          </p>
-        </div>
+      <section className={styles.matchingHeader}>
+        <h1 className={styles.matchingTitle}>지역별 취업처 매칭</h1>
+        <p className={styles.matchingSubtitle}>
+          희망 근무지역, 시간, 직무를 선택하고 맞춤형 일자리 정보를 찾아보세요.
+          당신에게 맞는 최고의 기회가 기다리고 있습니다.
+        </p>
       </section>
 
       {/* Filters Section */}
-      <section className="mb-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
+      <section className={styles.filterCard}>
+        <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-8 text-center">
           채용 정보 검색
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 items-end">
@@ -586,91 +583,69 @@ const MatchingPage = () => {
 
       {/* Job Listings Section */}
       <section>
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-blue-700 mb-8">
           검색 결과{" "}
           <span className="text-blue-600">({filteredJobs.length}건)</span>
         </h2>
         {filteredJobs.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className={styles.matchingCardGrid}>
             {filteredJobs.map((job) => (
-              <div
-                key={job.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col overflow-hidden border border-gray-200"
-              >
-                <div className="p-6 flex-grow">
-                  <div className="flex items-start mb-4">
-                    <div className="w-16 h-16 rounded-lg mr-4 border border-gray-200 bg-gray-100 flex items-center justify-center text-blue-500 flex-shrink-0">
-                      <Building size={36} />
-                    </div>
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-semibold text-blue-700 hover:text-blue-800 transition-colors duration-200 mb-1">
-                        <Link href={`/matching/${job.id}`}>{job.title}</Link>{" "}
-                        {/* Placeholder link */}
-                      </h3>
-                      <p className="text-gray-700 text-base sm:text-lg font-medium">
-                        {job.company}
-                      </p>
-                    </div>
+              <div key={job.id} className={styles.matchingCard}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.companyIcon}>
+                    <Building size={32} />
                   </div>
-
-                  <div className="space-y-3 text-gray-600 text-base mb-5">
-                    <div className="flex items-center">
-                      <MapPin
-                        size={20}
-                        className="mr-3 text-gray-500 flex-shrink-0"
-                      />
-                      <span>{job.location}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Clock
-                        size={20}
-                        className="mr-3 text-gray-500 flex-shrink-0"
-                      />
-                      <span>{job.workType}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <Briefcase
-                        size={20}
-                        className="mr-3 text-gray-500 flex-shrink-0"
-                      />
-                      <span>{job.salary}</span>
-                    </div>
-                  </div>
-
-                  <p className="text-gray-700 text-base leading-relaxed mb-5 line-clamp-3">
-                    {job.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {job.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <div>
+                    <h3 className={styles.cardTitle}>
+                      <Link href={`/matching/${job.id}`}>{job.title}</Link>
+                    </h3>
+                    <p className={styles.cardCompany}>{job.company}</p>
                   </div>
                 </div>
-
-                <div className="bg-gray-50 p-5 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <p className="text-sm text-gray-500">
+                <div className={styles.cardInfo}>
+                  <span className={styles.infoPill}>
+                    <MapPin size={18} /> {job.location}
+                  </span>
+                  <span className={styles.infoPill}>
+                    <Clock size={18} /> {job.workType}
+                  </span>
+                  <span className={styles.infoPill}>
+                    <Briefcase size={18} /> {job.salary}
+                  </span>
+                </div>
+                <div className={styles.cardDesc}>{job.description}</div>
+                <div className={styles.cardTags}>
+                  {job.tags.map((tag, index) => (
+                    <span key={index} className={styles.tagPill}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className={styles.cardFooter}>
+                  <span className={styles.cardDate}>
                     게시일: {job.postedDate}
-                  </p>
+                  </span>
                   {job.hasApplication ? (
                     <Link
                       href={`/matching/apply?jobId=${job.id}&hasApp=true`}
-                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-base font-semibold text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform hover:scale-105"
+                      className={styles.cardBtn}
                     >
-                      <CheckCircle size={20} className="mr-2" /> 지원하기 (기존
-                      정보 활용)
+                      <CheckCircle
+                        size={18}
+                        style={{ marginRight: 6, marginBottom: -2 }}
+                      />{" "}
+                      지원하기 (기존 정보 활용)
                     </Link>
                   ) : (
                     <Link
                       href={`/matching/apply?jobId=${job.id}`}
-                      className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 transform hover:scale-105"
+                      className={styles.cardBtn}
                     >
-                      <Edit3 size={20} className="mr-2" /> 신청서 작성 및 지원
+                      <Edit3
+                        size={18}
+                        style={{ marginRight: 6, marginBottom: -2 }}
+                      />{" "}
+                      신청서 작성 및 지원
                     </Link>
                   )}
                 </div>
@@ -692,21 +667,21 @@ const MatchingPage = () => {
 
       {/* Application Form Page (Conceptual Link) */}
       <section className="my-16 p-8 bg-blue-50 rounded-lg shadow-inner text-center">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="text-2xl font-bold text-blue-800 mb-4">
           새로운 기회를 찾고 계신가요?
         </h2>
-        <p className="text-lg text-gray-700 mb-6 max-w-xl mx-auto">
+        <p className="text-lg text-blue-700 mb-6 max-w-xl mx-auto">
           간편하게 지원서를 작성하고 맞춤형 일자리를 추천받으세요. 이력서가 이미
           있다면 더욱 빠르게 지원할 수 있습니다.
         </p>
         <Link
           href="/matching/apply"
-          className="bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-10 rounded-lg text-xl shadow-md hover:shadow-lg transition-colors duration-300 transform hover:scale-105"
+          className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold py-4 px-10 rounded-full text-xl shadow-md hover:shadow-lg transition-colors duration-300 transform hover:scale-105"
         >
           <Send size={22} className="inline mr-3" /> 지원서 작성 시작하기
         </Link>
       </section>
-    </>
+    </div>
   );
 };
 
